@@ -1,14 +1,19 @@
 var States = {
     
     'welcome': {
-        activeIntents: ['input.welcome','addAdmin', 'noAdmin','readMessage','sendMessage'],
+        activeIntents: ['input.welcome', 'noAdminWelcome', 'adminWelcome', 'userWelcome'],
         middleware: ['logInput']
     },
 
-    'registerAdmin': {
-        activeIntents: ['input.welcome'],
+    'noAdminWelcome': {
+        activeIntents: ['input.welcome', 'addAdmin', 'exit'],
         middleware: ['logInput']
     },
+
+    'adminWelcome': {
+        activeIntents: ['input.welcome', 'readMessage', 'exit'],
+        middleware: ['logInput']
+    }
 
 }
 

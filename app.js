@@ -11,14 +11,15 @@ var IntentMap = require('./Intents')
 var States = require('./states')
 var Ayva = require('../ayva')
 
+var StateDataStore = require('./DataStores/StateDataStore')
+
 //Ayva Config
 Ayva.Config.RegisterIntents(IntentMap);
 Ayva.Config.RegisterStates(States);
-
-var startingState = 'welcome'
+Ayva.Config.StateProvider(StateDataStore);
 
 app.post('/gAssistant', function(req, res) {
-    Ayva.ExecuteRequest.FromGoogle(req.body, startingState, res);    
+    Ayva.ExecuteRequest.FromGoogle(req.body, res);    
 })
 
 server.listen(process.env.PORT || 8080, function() {

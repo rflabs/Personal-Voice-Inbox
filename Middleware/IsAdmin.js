@@ -1,7 +1,7 @@
-var localDataStore = require('../localDataStore')
+var AdminDataStore = require('../DataStores/AdminDataStore')
 
 var isAdmin = function(Context) {
-    if (localDataStore.getAdmins(Context.deviceProfile.platform).includes(Context.deviceProfile.id)) {
+    if (AdminDataStore.getAdmins(Context.deviceProfile.platform).includes(Context.deviceProfile.id)) {
         Context.isAdmin = true
     }
 }

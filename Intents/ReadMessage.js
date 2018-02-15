@@ -6,10 +6,10 @@ var StateDataStore = require('../DataStores/StateDataStore')
 var Ayva = require('../../ayva')
 var StateManager = Ayva.StateManager
 
-var AddAdmin = function(Context){
+var ReadMessage = function(Context){
     AdminDataStore.saveAdmin(Context.deviceProfile)
     StateManager.setState('adminWelcome', Context)
     Context.assistant.say("You are registered as an admin. Would you like to hear your messages?").finish()
 }
 
-module.exports = AddAdmin;
+module.exports = ReadMessage;

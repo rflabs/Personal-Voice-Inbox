@@ -1,5 +1,5 @@
 
-var LocalDataStore = function(){
+var AdminDataStore = function(){
     var Data = {
         Admins: {
             "google": [],
@@ -9,13 +9,11 @@ var LocalDataStore = function(){
     return {
         saveAdmin: function(deviceProfile) {
             Data.Admins[deviceProfile.platform].push(deviceProfile.id)
-            console.log(Data)
         },
         getAdmins: function(platform) {
             return Data.Admins[platform]
         },
         hasAdmin: function() {
-            console.log(Data)
             for (platform in Data.Admins) {
                 if(Data.Admins[platform].length != 0) {
                     return true
@@ -29,4 +27,4 @@ var LocalDataStore = function(){
     }
 }()
 
-module.exports = LocalDataStore
+module.exports = AdminDataStore
