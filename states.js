@@ -13,6 +13,11 @@ var States = {
     'adminWelcome': {
         activeIntents: ['input.welcome', 'readMessage', 'exit'],
         middleware: ['logInput']
+    },
+
+    'message': {
+        activeIntents: ['input.welcome', 'readMessage', 'exit'],
+        middleware: ['logInput']
     }
 
 }
